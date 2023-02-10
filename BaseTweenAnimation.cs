@@ -19,18 +19,25 @@ public abstract class BaseTweenAnimation : ITween
         GetTween().TryPlayTween(ref _tween);
     }
 
-    public void PlayForward()
+    public void PlayForward(Action onComplete = null)
     {
         if (_tween == null)
         {
+            SetStartValues();
             _tween = GetTween();
             _tween.SetAutoKill(false);
         }
 
         else _tween.PlayForward();
+
+        _tween.onPause = () => onComplete?.Invoke();
     }
 
-    public void PlayBackwards() => _tween?.PlayBackwards();
+    public void PlayBackwards(Action onComplete = null)
+    {
+        _tween.PlayBackwards();
+        _tween.onPause = () => onComplete?.Invoke();
+    }
 
     public virtual void OnStart()
     {

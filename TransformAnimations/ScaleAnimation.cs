@@ -7,7 +7,7 @@ public class ScaleAnimation : BaseTweenAnimation
 {
     [SerializeField] private Vector3 _endScale;
     [SerializeField] private Vector3 _startScale;
-    [SerializeReference] private IScaleTween _scaleTween;
+    [SerializeReference] public IScaleTween _scaleTween;
     public override void SetStartValues() => _scaleTween.SetScaleValue(_startScale);
 
     public override void SetEndValues() => _scaleTween.SetScaleValue(_startScale);

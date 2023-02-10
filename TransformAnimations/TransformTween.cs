@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 
 [Serializable]
-public class MoveTransformTween : IMoveTransformTween, IPunchTransformTween, IScaleTween
+public class TransformTween : IMoveTransformTween, IPunchTransformTween, IScaleTween
 {
     [SerializeField] private Transform _transform;
 
